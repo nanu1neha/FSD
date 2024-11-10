@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Website</title>
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="script.js" defer></script> <!-- Link to the JavaScript file -->
+</head>
+<body>
+
+    <!-- Home Section -->
+    <header>
+        <div class="header-container">
+            <h1>Welcome to Our Company</h1>
+            <button class="btn" onclick="document.getElementById('register-modal').style.display='block'">Register</button>
+            <button class="btn" onclick="document.getElementById('login-modal').style.display='block'">Login</button>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Our Gallery</h2>
+        <div class="gallery-item">
+            <img src="images/gallery1.jpeg" alt="Place 1">
+            <h3>Place 1</h3>
+            <p>Attractions: Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="gallery-item">
+            <img src="images/gallery2.jpeg" alt="Place 2">
+            <h3>Place 2</h3>
+            <p>Attractions: Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="gallery-item">
+            <img src="images/gallery3.jpeg" alt="Place 3">
+            <h3>Place 3</h3>
+            <p>Attractions: Lorem ipsum dolor sit amet.</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="about-us">
+        <div class="row">
+            <div class="col">
+                <img src="images/about us.jpeg" alt="Company Image">
+            </div>
+            <div class="col">
+                <h2>About Us</h2>
+                <p>We are a leading company in the industry. Established in 2000, we have been providing exceptional services and products to our customers. Our core values include quality, innovation, and customer satisfaction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Company Name. All Rights Reserved.</p>
+            <div class="social-media">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('register-modal').style.display='none'">&times;</span>
+            <h2>Register</h2>
+            <form id="register-form" onsubmit="return validateRegisterForm()">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required><br>
+                
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}" title="10 digits only"><br>
+                
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required><br>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+                
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="Male"> Male
+                <input type="radio" id="female" name="gender" value="Female"> Female<br>
+                
+                <button type="submit">Register</button>
+                <p>Already have an account? <a href="#" onclick="document.getElementById('register-modal').style.display='none'; document.getElementById('login-modal').style.display='block'">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('login-modal').style.display='none'">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form" onsubmit="return validateLoginForm()">
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" name="login-email" required><br>
+                
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="login-password" required><br>
+                
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="#" onclick="document.getElementById('login-modal').style.display='none'; document.getElementById('register-modal').style.display='block'">Register</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal close logic
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('register-modal') || event.target == document.getElementById('login-modal')) {
+                document.getElementById('register-modal').style.display = "none";
+                document.getElementById('login-modal').style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
